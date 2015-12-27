@@ -1,0 +1,51 @@
+motors-deck
+========================================================
+author: Ivan Kosyakov
+
+Slide #1. Goal
+========================================================
+
+Goal of this project is to predict miles per (US) gallon for cars based on some attributes.
+
+Slide #2. Data source
+===
+
+In this project we used *mtcars* dataset: 
+
+```{r}
+library (datasets)
+data (mtcars)
+head (mtcars)
+```
+
+Slide #3. Variables for the prediction
+===
+
+For the prediction we choosed 4 variables:
+- am: Transmission (0 = automatic, 1 = manual)
+- cyl: Number of cylinders
+- hp: Gross horsepower
+- wt: Weight in lb/1000
+
+Slide #4. Data ranges
+===
+
+Here are some examples of values of analysed variables:
+
+```{r}
+str (mtcars [,c(1,2,4,6,9)])
+```
+
+
+Sliede #5. Conclusion
+===
+
+In application we used linear model. Additionally here is example of prediction based on sample data:
+
+```{r}
+fit <- lm (mpg ~ factor(am) + wt + cyl + hp, data = mtcars) 
+uservalues <- data.frame (am = factor(1), cyl= 6, hp = 110, wt = 2.62)
+```
+
+
+
